@@ -37,13 +37,49 @@ export default function ClassList() {
         }
     ]);
 
+    const [newClass, setNewClass] = useState('')
+
+    const toggleClassModal = () => {
+        //Create modal with form to enter class information
+        const addClassModal = document.querySelector('.modal');
+        if (addClassModal.style.display !== "block") {
+            addClassModal.style.display = "block";
+          } else {
+            addClassModal.style.display = "none";
+          }
+    }
+
+    const addClass = () => {
+        setClassList([
+            ...classList,
+            {
+                id: newClass
+            }
+        ])
+        const classTitleInput = document.querySelector('.classTitleInput');
+        classTitleInput.value = '';
+        toggleClassModal();
+        setNewClass('');
+    }
+
     return (
         <div>
             {classList.map((classInfo) => {
                 return (
-                    <Class classInfo={classInfo} />
+                    <Class key={classInfo.id} classInfo={classInfo} />
                 )
             })}
+            <button onClick={() => toggleClassModal()}>
+                Add Class
+            </button>
+            <div className="ui basic modal">
+                <div className="content">
+                    <label>First Name</label>
+                    <input type="text" placeholder="Class Title (ex: AB2)" className='classTitleInput'
+                            onChange={(event) => setNewClass(event.target.value)} />
+                    </div>
+                    <button className="ui button" onClick={() => addClass()}>Add</button>
+                </div>
         </div>
     )
 }
