@@ -3,41 +3,7 @@ import { useState } from 'react';
 import Class from './Class';
 import './ClassList.css';
 
-export default function ClassList() {
-    const [classList, setClassList] = useState([
-        {
-            id: 'AB2',
-            roster: [
-                {
-                    name: 'Hans',
-                },
-                {
-                    name: 'Tammy',
-                },
-                {
-                    name: 'Yuni',
-                },
-                {
-                    name: 'Nina',
-                },
-            ]
-        },
-        {
-            id: 'ED1',
-            roster: [
-                {
-                    name: 'Ivan'
-                },
-                {
-                    name: 'Fifi'
-                },
-                {
-                    name: 'Peter'
-                }
-            ]
-        }
-    ]);
-
+export default function ClassList({classList, setClassList}) {
     const [newClass, setNewClass] = useState('')
 
     const toggleAddClassModal = () => {
@@ -56,7 +22,8 @@ export default function ClassList() {
             setClassList([
                 ...classList,
                 {
-                    id: newClass
+                    id: newClass,
+                    roster: []
                 }
             ])
             // clear input value
@@ -71,12 +38,17 @@ export default function ClassList() {
         }
     }
 
+    const deleteClass = (id) => {
+        const newClassList = classList.filter((classInfo) => classInfo.id !== id);
+        setClassList(newClassList);
+    }
+
     return (
         <div>
             <div className="ui cards classListContainer">
                 {classList.map((classInfo) => {
                     return (
-                        <Class key={classInfo.id} classInfo={classInfo} />
+                        <Class key={classInfo.id} classInfo={classInfo} deleteClass={deleteClass} />
                     )
                 })}
             </div>

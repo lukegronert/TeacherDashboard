@@ -13,7 +13,7 @@ export default function Class(props) {
                 <div className="extra content">
                     <div className="ui two buttons">
                         <div className="ui basic green button">View Class</div>
-                        <div className="ui basic red button">Delete Class</div>
+                        <div className="ui basic red button" onClick={() => props.deleteClass(props.classInfo.id)}>Delete Class</div>
                     </div>
                 </div>
             </div>
