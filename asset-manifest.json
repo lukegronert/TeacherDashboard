@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/TeacherDashboard/static/css/main.b28ada3b.chunk.css",
+    "main.js": "/TeacherDashboard/static/js/main.6584fafe.chunk.js",
+    "main.js.map": "/TeacherDashboard/static/js/main.6584fafe.chunk.js.map",
+    "runtime-main.js": "/TeacherDashboard/static/js/runtime-main.00feb70a.js",
+    "runtime-main.js.map": "/TeacherDashboard/static/js/runtime-main.00feb70a.js.map",
+    "static/js/2.19683486.chunk.js": "/TeacherDashboard/static/js/2.19683486.chunk.js",
+    "static/js/2.19683486.chunk.js.map": "/TeacherDashboard/static/js/2.19683486.chunk.js.map",
+    "index.html": "/TeacherDashboard/index.html",
+    "static/css/main.b28ada3b.chunk.css.map": "/TeacherDashboard/static/css/main.b28ada3b.chunk.css.map",
+    "static/js/2.19683486.chunk.js.LICENSE.txt": "/TeacherDashboard/static/js/2.19683486.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.00feb70a.js",
+    "static/js/2.19683486.chunk.js",
+    "static/css/main.b28ada3b.chunk.css",
+    "static/js/main.6584fafe.chunk.js"
+  ]
+}
