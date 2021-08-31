@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
-import Class from './Class';
+import ClassCard from './ClassCard';
 import './ClassList.css';
 
-export default function ClassList({classList, setClassList}) {
+export default function ClassList({classList, setClassList, selectedClass, setSelectedClass}) {
     const [newClass, setNewClass] = useState('')
 
     const toggleAddClassModal = () => {
@@ -44,24 +44,26 @@ export default function ClassList({classList, setClassList}) {
     }
 
     return (
-        <div>
+        <div className="mainContent">
+        <h1>Welcome, Teacher!</h1>
             <div className="ui cards classListContainer">
                 {classList.map((classInfo) => {
                     return (
-                        <Class key={classInfo.id} classInfo={classInfo} deleteClass={deleteClass} />
+                        <ClassCard key={classInfo.id} classInfo={classInfo} deleteClass={deleteClass} 
+                        selectedClass={selectedClass} setSelectedClass={setSelectedClass} />
                     )
                 })}
             </div>
-            <button onClick={() => toggleAddClassModal()}>
+            <button className='addClassButton' onClick={() => toggleAddClassModal()}>
                 Add Class
             </button>
-            <div className="ui basic modal">
-                <div className="content black">
-                    <label>First Name</label>
-                    <input type="text" placeholder="Class Title (ex: AB2)" className='classTitleInput'
+            <div className="modal">
+                <div className="modalContent">
+                    <label>Class Title</label>
+                    <input type="text" placeholder="(ex: AB2)" className='classTitleInput'
                             onChange={(event) => setNewClass(event.target.value)} />
                 </div>
-                    <button className="ui button" onClick={() => addClass()}>Add</button>
+                    <button onClick={() => addClass()}>Add</button>
             </div>
         </div>
     )

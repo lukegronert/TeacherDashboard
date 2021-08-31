@@ -1,6 +1,8 @@
 import './App.css';
 import ClassList from './components/ClassList';
 import { useState } from 'react';
+import { HashRouter, Route, Link } from "react-router-dom";
+import ClassPage from './components/ClassPage';
 
 function App() {
   const [classList, setClassList] = useState([
@@ -36,12 +38,15 @@ function App() {
         ]
     }
   ]);
-  return (
-    <div className="App">
-      <h1>Welcome, Teacher!</h1>
-      <ClassList classList={classList} setClassList={setClassList} />
-    </div>
-  );
-}
+
+  const [selectedClass, setSelectedClass] = useState({});
+
+    return (
+     <HashRouter basename='/'>
+       <Route exact path="/" render={() => <ClassList classList={classList} setClassList={setClassList} setSelectedClass={setSelectedClass} />} />
+       <Route path='/classpage' render={() => <ClassPage selectedClass={selectedClass} />} />
+     </HashRouter>
+    );
+   }
 
 export default App;
