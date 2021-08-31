@@ -1,7 +1,7 @@
 import './App.css';
 import ClassList from './components/ClassList';
 import { useState } from 'react';
-import { HashRouter, Route, Link } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import ClassPage from './components/ClassPage';
 
 function App() {
