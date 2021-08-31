@@ -11,15 +11,19 @@ function App() {
         roster: [
             {
                 name: 'Hans',
+                points: 0
             },
             {
                 name: 'Tammy',
+                points: 0
             },
             {
                 name: 'Yuni',
+                points: 0
             },
             {
                 name: 'Nina',
+                points: 0
             },
         ]
     },
@@ -27,13 +31,16 @@ function App() {
         id: 'ED1',
         roster: [
             {
-                name: 'Ivan'
+                name: 'Ivan',
+                points: 0
             },
             {
-                name: 'Fifi'
+                name: 'Fifi',
+                points: 0
             },
             {
-                name: 'Peter'
+                name: 'Peter',
+                points: 0
             }
         ]
     }
@@ -43,8 +50,10 @@ function App() {
 
     return (
      <HashRouter basename='/'>
-       <Route exact path="/" render={() => <ClassList classList={classList} setClassList={setClassList} setSelectedClass={setSelectedClass} />} />
-       <Route path='/classpage' render={() => <ClassPage selectedClass={selectedClass} />} />
+       <Route exact path="/" render={() => <ClassList classList={classList} setClassList={setClassList}
+                                            setSelectedClass={setSelectedClass} />} />
+       <Route path='/classpage' render={() => <ClassPage selectedClass={selectedClass} setSelectedClass={setSelectedClass}
+                                            classList={classList} setClassList={setClassList} />} />
      </HashRouter>
     );
    }

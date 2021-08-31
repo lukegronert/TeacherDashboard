@@ -9,20 +9,48 @@ h1 {
   margin: 0 auto;
 }
 
+.classContent {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+/* ======================================== */
+/* Roster sidebar styles */
+/* ======================================== */
+
 .roster {
   height: 100%;
   width: 20%;
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
-  font-size: 2rem;
   font-weight: bolder;
 }
 
-.roster div {
+.roster .student {
   cursor: pointer;
+  font-size: 1.5rem;
 }
 
-.roster div:hover {
+.roster .student:hover {
   color: gold;
+}
+
+.studentContent {
+  height: 100%;
+  width: 80%;
+}
+
+/* ======================================== */
+/* Modal Styles */
+/* ======================================== */
+
+.studentModal {
+  display: none;
+}
+
+.modalContent {
+  margin: 0;
 }

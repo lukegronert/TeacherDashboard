@@ -8,7 +8,7 @@ export default function ClassList({classList, setClassList, selectedClass, setSe
 
     const toggleAddClassModal = () => {
         //Create modal with form to enter class information
-        const addClassModal = document.querySelector('.modal');
+        const addClassModal = document.querySelector('.classModal');
         if (addClassModal.style.display !== "block") {
             addClassModal.style.display = "block";
           } else {
@@ -57,7 +57,7 @@ export default function ClassList({classList, setClassList, selectedClass, setSe
             <button className='addClassButton' onClick={() => toggleAddClassModal()}>
                 Add Class
             </button>
-            <div className="modal">
+            <div className="modal classModal">
                 <div className="modalContent">
                     <label>Class Title</label>
                     <input type="text" placeholder="(ex: AB2)" className='classTitleInput'
