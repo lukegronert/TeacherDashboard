@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+}
+
+h1 {
+  margin: 0 auto;
+}
+
+.roster {
+  height: 100%;
+  width: 20%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.roster div {
+  cursor: pointer;
+}
+
+.roster div:hover {
+  color: gold;
+}
