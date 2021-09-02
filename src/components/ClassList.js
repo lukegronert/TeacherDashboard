@@ -39,7 +39,9 @@ export default function ClassList({classList, setClassList, selectedClass, setSe
     }
 
     const deleteClass = (id) => {
+        // create new array without the class that user wants to delete
         const newClassList = classList.filter((classInfo) => classInfo.id !== id);
+        // set the new array without the deleted array as the classList
         setClassList(newClassList);
     }
 

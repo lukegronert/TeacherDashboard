@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 export default function ClassPage({selectedClass, setSelectedClass, classList, setClassList}) {
     const [newStudent, setNewStudent] = useState('');
-
+    
     const toggleStudentModal = () => {
         const studentModal = document.querySelector('.studentModal');
         if(studentModal.style.display !== 'block') {
