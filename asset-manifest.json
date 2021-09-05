@@ -1,20 +1,24 @@
 {
   "files": {
-    "main.css": "/TeacherDashboard/static/css/main.b28ada3b.chunk.css",
-    "main.js": "/TeacherDashboard/static/js/main.6584fafe.chunk.js",
-    "main.js.map": "/TeacherDashboard/static/js/main.6584fafe.chunk.js.map",
+    "main.css": "/TeacherDashboard/static/css/main.517c74db.chunk.css",
+    "main.js": "/TeacherDashboard/static/js/main.2561ace8.chunk.js",
+    "main.js.map": "/TeacherDashboard/static/js/main.2561ace8.chunk.js.map",
     "runtime-main.js": "/TeacherDashboard/static/js/runtime-main.00feb70a.js",
     "runtime-main.js.map": "/TeacherDashboard/static/js/runtime-main.00feb70a.js.map",
-    "static/js/2.19683486.chunk.js": "/TeacherDashboard/static/js/2.19683486.chunk.js",
-    "static/js/2.19683486.chunk.js.map": "/TeacherDashboard/static/js/2.19683486.chunk.js.map",
+    "static/css/2.23df6f8b.chunk.css": "/TeacherDashboard/static/css/2.23df6f8b.chunk.css",
+    "static/js/2.a5b6998c.chunk.js": "/TeacherDashboard/static/js/2.a5b6998c.chunk.js",
+    "static/js/2.a5b6998c.chunk.js.map": "/TeacherDashboard/static/js/2.a5b6998c.chunk.js.map",
     "index.html": "/TeacherDashboard/index.html",
-    "static/css/main.b28ada3b.chunk.css.map": "/TeacherDashboard/static/css/main.b28ada3b.chunk.css.map",
-    "static/js/2.19683486.chunk.js.LICENSE.txt": "/TeacherDashboard/static/js/2.19683486.chunk.js.LICENSE.txt"
+    "static/css/2.23df6f8b.chunk.css.map": "/TeacherDashboard/static/css/2.23df6f8b.chunk.css.map",
+    "static/css/main.517c74db.chunk.css.map": "/TeacherDashboard/static/css/main.517c74db.chunk.css.map",
+    "static/js/2.a5b6998c.chunk.js.LICENSE.txt": "/TeacherDashboard/static/js/2.a5b6998c.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/TeacherDashboard/static/media/outline-icons.ddae9b1b.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.00feb70a.js",
-    "static/js/2.19683486.chunk.js",
-    "static/css/main.b28ada3b.chunk.css",
-    "static/js/main.6584fafe.chunk.js"
+    "static/css/2.23df6f8b.chunk.css",
+    "static/js/2.a5b6998c.chunk.js",
+    "static/css/main.517c74db.chunk.css",
+    "static/js/main.2561ace8.chunk.js"
   ]
 }
