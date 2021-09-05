@@ -6,11 +6,6 @@ import StudentDisplay from './StudentDisplay';
 export default function ClassPage({selectedClass, setSelectedClass, classList, setClassList}) {
     const [newStudent, setNewStudent] = useState('');
     const [selectedStudent, setSelectedStudent] = useState({});
-
-    const selectStudent = (studentName) => {
-        const students = document.querySelectorAll('.student');
-        selectedClass.roster.map((student) => student.name === studentName ? setSelectedStudent(student) : null)
-    }
     
     const toggleStudentModal = () => {
         const studentModal = document.querySelector('.studentModal');
@@ -22,25 +17,33 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
     }
 
     const addStudent = () => {
-        // Set classList to include new student in the selectedClass
-        setClassList(
-            classList.map((classInfo) => 
-            // Find the class with the same id as the selectedClass being displayed on this page
-                classInfo.id === selectedClass.id 
-                ? {
-                    ...classInfo,
-                    roster: [
-                        // Add the new student to the roster
-                        ...classInfo.roster,
-                        {
-                            name: newStudent,
-                            points: 0
-                        }
-                    ]
-                }
-                : { ...classInfo }
-            )
-        );
+        const studentNameInput = document.querySelector('.studentNameInput');
+        // only add student if input is not blank
+        if(studentNameInput.value !== '') {
+            // Set classList to include new student in the selectedClass
+            setClassList(
+                classList.map((classInfo) => 
+                // Find the class with the same id as the selectedClass being displayed on this page
+                    classInfo.id === selectedClass.id 
+                    ? {
+                        ...classInfo,
+                        roster: [
+                            // Add the new student to the roster
+                            ...classInfo.roster,
+                            {
+                                name: newStudent,
+                                points: 0,
+                                level: 0
+                            }
+                        ]
+                    }
+                    : { ...classInfo }
+                )
+            );
+            // Set input text to blank
+            studentNameInput.value = '';
+            setNewStudent('');
+        }
     };
 
     useEffect(() => {
@@ -55,9 +58,10 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
             <h1>{selectedClass.id}</h1>
             <div className='classContent'>
                 <div className='roster'>
+                <div className='student' onClick={() => setSelectedStudent(selectedClass.roster)}>All</div>
                     {selectedClass.roster.map((student) => {
                         return (
-                            <div key={student.name} className='student' onClick={() => selectStudent(student.name)}>{student.name}</div>
+                            <div key={student.name} className='student' onClick={() => setSelectedStudent(student)}>{student.name}</div>
                         )
                     })}
                     <div className="modal studentModal">
@@ -70,7 +74,7 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                     </div>
                     <button onClick={() => toggleStudentModal()}>Add Student</button>
                 </div>
-                <StudentDisplay selectedStudent={selectedStudent} />
+                <StudentDisplay selectedStudent={selectedStudent} setSelectedStudent={setSelectedStudent} roster={selectedClass.roster} />
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import './App.css';
+import 'semantic-ui-css/semantic.min.css';
 import ClassList from './components/ClassList';
 import { useState } from 'react';
 import { HashRouter, Route } from "react-router-dom";
@@ -11,19 +11,19 @@ function App() {
         roster: [
             {
                 name: 'Hans',
-                points: 0
+                points: 545
             },
             {
                 name: 'Tammy',
-                points: 0
+                points: 233
             },
             {
                 name: 'Yuni',
-                points: 0
+                points: 94
             },
             {
                 name: 'Nina',
-                points: 0
+                points: 333
             },
         ]
     },
@@ -32,15 +32,15 @@ function App() {
         roster: [
             {
                 name: 'Ivan',
-                points: 0
+                points: 784
             },
             {
                 name: 'Fifi',
-                points: 0
+                points: 3
             },
             {
                 name: 'Peter',
-                points: 0
+                points: 777
             }
         ]
     }
