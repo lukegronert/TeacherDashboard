@@ -1,9 +1,16 @@
 import React from 'react';
 import './ClassPage.css';
 import { useState, useEffect } from 'react';
+import StudentDisplay from './StudentDisplay';
 
 export default function ClassPage({selectedClass, setSelectedClass, classList, setClassList}) {
     const [newStudent, setNewStudent] = useState('');
+    const [selectedStudent, setSelectedStudent] = useState({});
+
+    const selectStudent = (studentName) => {
+        const students = document.querySelectorAll('.student');
+        selectedClass.roster.map((student) => student.name === studentName ? setSelectedStudent(student) : null)
+    }
     
     const toggleStudentModal = () => {
         const studentModal = document.querySelector('.studentModal');
@@ -50,7 +57,7 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                 <div className='roster'>
                     {selectedClass.roster.map((student) => {
                         return (
-                            <div key={student.name} className='student'>{student.name}</div>
+                            <div key={student.name} className='student' onClick={() => selectStudent(student.name)}>{student.name}</div>
                         )
                     })}
                     <div className="modal studentModal">
@@ -63,9 +70,7 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                     </div>
                     <button onClick={() => toggleStudentModal()}>Add Student</button>
                 </div>
-                <div className='studentContent'>
-
-                </div>
+                <StudentDisplay selectedStudent={selectedStudent} />
             </div>
         </div>
     )
