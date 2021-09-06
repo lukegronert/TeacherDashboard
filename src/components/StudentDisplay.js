@@ -19,6 +19,7 @@ export default function StudentDisplay({selectedStudent, setSelectedStudent, ros
                 <h2>{calculateLevel(selectedStudent.points)}</h2>
                     {selectedStudent.name}
                     <Progress progress percent={calculatePercentToNextLevel(selectedStudent.points)} />
+                    <button>Add Points</button>
             </div>
         )
     }
