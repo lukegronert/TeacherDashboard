@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import StudentDisplay from './StudentDisplay';
 import { Link } from 'react-router-dom';
 
-export default function ClassPage({selectedClass, setSelectedClass, classList, setClassList}) {
+export default function ClassPage({selectedClass, setSelectedClass, classList, setClassList, updateLocalStorage}) {
     const [newStudent, setNewStudent] = useState('');
     const [selectedStudent, setSelectedStudent] = useState({});
     
@@ -45,16 +45,44 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
             // Set input text to blank
             studentNameInput.value = '';
             setNewStudent('');
+            updateLocalStorage()
         }
     };
 
     useEffect(() => {
         // Whenever classList is updated, update selectedClass for any changes in the roster (when a new student is added)
+        updateLocalStorage()
         setSelectedClass(classList.find((classInfo) => {
             return classInfo.id === selectedClass.id;
         }));
     }, [classList])
 
+    if(selectedClass.roster.length === 0) {
+        return (
+            <div className='container'>
+                <nav>
+                    <span><Link to="/">Home</Link></span>
+                </nav>
+                <h1>{selectedClass.id}</h1>
+                <div className='classContent'>
+                    <div className='roster'>
+                    <div className='student' onClick={() => setSelectedStudent(selectedClass.roster)}>All</div>
+                        <div className="modal studentModal">
+                            <div className="modalContent">
+                                <label>Student Name</label>
+                                <input type="text" placeholder="" className='studentNameInput'
+                                        onChange={(event) => setNewStudent(event.target.value)} />
+                            </div>
+                                <button onClick={() => addStudent()}>Add</button>
+                        </div>
+                        <button onClick={() => toggleStudentModal()}>Add Student</button>
+                    </div>
+                    <StudentDisplay selectedStudent={selectedStudent} setSelectedStudent={setSelectedStudent} roster={selectedClass.roster}
+                                    classList={classList} setClassList={setClassList} selectedClass={selectedClass} updateLocalStorage={updateLocalStorage} />
+                </div>
+            </div>
+        )
+    }
     return (
         <div className='container'>
             <nav>
@@ -80,7 +108,7 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                     <button onClick={() => toggleStudentModal()}>Add Student</button>
                 </div>
                 <StudentDisplay selectedStudent={selectedStudent} setSelectedStudent={setSelectedStudent} roster={selectedClass.roster}
-                                classList={classList} setClassList={setClassList} selectedClass={selectedClass} />
+                                classList={classList} setClassList={setClassList} selectedClass={selectedClass} updateLocalStorage={updateLocalStorage} />
             </div>
         </div>
     )

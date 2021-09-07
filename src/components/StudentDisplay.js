@@ -1,10 +1,11 @@
 import React from 'react';
 import './StudentDisplay.css';
 import { Progress } from 'semantic-ui-react';
+import { useEffect } from 'react';
 
 /* eslint-disable */
 //Disabled eslint because no-unused-expressions was not letting my program run
-export default function StudentDisplay({selectedStudent, setSelectedStudent, roster, classList, setClassList, selectedClass }) {
+export default function StudentDisplay({selectedStudent, setSelectedStudent, roster, classList, setClassList, selectedClass, updateLocalStorage }) {
     const calculateLevel = (points) => {
         return Math.floor(points/100)
     }
@@ -46,7 +47,7 @@ export default function StudentDisplay({selectedStudent, setSelectedStudent, ros
                                 )
                             }
                         }))
-                        console.log(selectedClass)
+                        updateLocalStorage()
         };
 
     const subtractPoint = (studentName, studentClassId) => {
@@ -82,7 +83,7 @@ export default function StudentDisplay({selectedStudent, setSelectedStudent, ros
                             )
                         }
                     }))
-                    console.log(selectedClass)
+                    updateLocalStorage()
     };
 
     if(selectedStudent.name !== undefined) {

@@ -1,9 +1,9 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ClassCard from './ClassCard';
 import './ClassList.css';
 
-export default function ClassList({classList, setClassList, selectedClass, setSelectedClass}) {
+export default function ClassList({classList, setClassList, selectedClass, setSelectedClass, updateLocalStorage}) {
     const [newClass, setNewClass] = useState('')
 
     const toggleAddClassModal = () => {
@@ -19,6 +19,7 @@ export default function ClassList({classList, setClassList, selectedClass, setSe
     const addClass = () => {
         //add class to classList
         if(newClass !== '') {
+            console.log(classList)
             setClassList([
                 ...classList,
                 {
@@ -45,28 +46,51 @@ export default function ClassList({classList, setClassList, selectedClass, setSe
         setClassList(newClassList);
     }
 
-    return (
-        <div className="mainContent">
-        <h1>Welcome, Teacher!</h1>
-            <div className="ui cards classListContainer">
-                {classList.map((classInfo) => {
-                    return (
-                        <ClassCard key={classInfo.id} classInfo={classInfo} deleteClass={deleteClass} 
-                        selectedClass={selectedClass} setSelectedClass={setSelectedClass} />
-                    )
-                })}
-            </div>
-            <button className='addClassButton' onClick={() => toggleAddClassModal()}>
-                Add Class
-            </button>
-            <div className="modal classModal">
-                <div className="modalContent">
-                    <label>Class Title</label>
-                    <input type="text" placeholder="(ex: AB2)" className='classTitleInput'
-                            onChange={(event) => setNewClass(event.target.value)} />
+    useEffect(() => {
+        updateLocalStorage()
+    }, [classList])
+
+    if(classList !== null) {
+        return (
+            <div className="mainContent">
+            <h1>Welcome, Teacher!</h1>
+                <div className="ui cards classListContainer">
+                    {classList.map((classInfo) => {
+                        return (
+                            <ClassCard key={classInfo.id} classInfo={classInfo} deleteClass={deleteClass} 
+                            selectedClass={selectedClass} setSelectedClass={setSelectedClass} />
+                        )
+                    })}
                 </div>
-                    <button onClick={() => addClass()}>Add</button>
+                <button className='addClassButton' onClick={() => toggleAddClassModal()}>
+                    Add Class
+                </button>
+                <div className="modal classModal">
+                    <div className="modalContent">
+                        <label>Class Title</label>
+                        <input type="text" placeholder="(ex: AB2)" className='classTitleInput'
+                                onChange={(event) => setNewClass(event.target.value)} />
+                    </div>
+                        <button onClick={() => addClass()}>Add</button>
+                </div>
             </div>
-        </div>
-    )
+        );
+    } else {
+        return (
+            <div className="mainContent">
+                <h1>Welcome, Teacher!</h1>
+                <button className='addClassButton' onClick={() => toggleAddClassModal()}>
+                    Add Class
+                </button>
+                <div className="modal classModal">
+                    <div className="modalContent">
+                        <label>Class Title</label>
+                        <input type="text" placeholder="(ex: AB2)" className='classTitleInput'
+                                onChange={(event) => setNewClass(event.target.value)} />
+                    </div>
+                        <button onClick={() => addClass()}>Add</button>
+                </div>
+            </div>
+        )
+    }
 }
