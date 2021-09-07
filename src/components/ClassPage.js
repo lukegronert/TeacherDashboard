@@ -2,6 +2,7 @@ import React from 'react';
 import './ClassPage.css';
 import { useState, useEffect } from 'react';
 import StudentDisplay from './StudentDisplay';
+import { Link } from 'react-router-dom';
 
 export default function ClassPage({selectedClass, setSelectedClass, classList, setClassList}) {
     const [newStudent, setNewStudent] = useState('');
@@ -56,6 +57,9 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
 
     return (
         <div className='container'>
+            <nav>
+                <span><Link to="/">Home</Link></span>
+            </nav>
             <h1>{selectedClass.id}</h1>
             <div className='classContent'>
                 <div className='roster'>
