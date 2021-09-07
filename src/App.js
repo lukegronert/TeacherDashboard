@@ -11,19 +11,23 @@ function App() {
         roster: [
             {
                 name: 'Hans',
-                points: 545
+                points: 545,
+                classId: 'AB2'
             },
             {
                 name: 'Tammy',
-                points: 233
+                points: 233,
+                classId: 'AB2'
             },
             {
                 name: 'Yuni',
-                points: 94
+                points: 94,
+                classId: 'AB2'
             },
             {
                 name: 'Nina',
-                points: 333
+                points: 333,
+                classId: 'AB2'
             },
         ]
     },
@@ -32,15 +36,18 @@ function App() {
         roster: [
             {
                 name: 'Ivan',
-                points: 784
+                points: 784,
+                classId: 'ED1'
             },
             {
                 name: 'Fifi',
-                points: 3
+                points: 3,
+                classId: 'ED1'
             },
             {
                 name: 'Peter',
-                points: 777
+                points: 777,
+                classId: 'ED1'
             }
         ]
     }

@@ -33,7 +33,8 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                             {
                                 name: newStudent,
                                 points: 0,
-                                level: 0
+                                level: 0,
+                                classId: selectedClass.id
                             }
                         ]
                     }
@@ -74,7 +75,8 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                     </div>
                     <button onClick={() => toggleStudentModal()}>Add Student</button>
                 </div>
-                <StudentDisplay selectedStudent={selectedStudent} setSelectedStudent={setSelectedStudent} roster={selectedClass.roster} />
+                <StudentDisplay selectedStudent={selectedStudent} setSelectedStudent={setSelectedStudent} roster={selectedClass.roster}
+                                classList={classList} setClassList={setClassList} selectedClass={selectedClass} />
             </div>
         </div>
     )
