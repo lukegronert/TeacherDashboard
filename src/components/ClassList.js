@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import ClassCard from './ClassCard';
 import './ClassList.css';
 
-export default function ClassList({classList, setClassList, selectedClass, setSelectedClass, updateLocalStorage}) {
+export default function ClassList({classList, setClassList, selectedClass, setSelectedClass, updateClassListLocalStorage, updateSelectedClassLocalStorage}) {
     const [newClass, setNewClass] = useState('')
 
     const toggleAddClassModal = () => {
@@ -47,7 +47,7 @@ export default function ClassList({classList, setClassList, selectedClass, setSe
     }
 
     useEffect(() => {
-        updateLocalStorage()
+        updateClassListLocalStorage()
     }, [classList])
 
     if(classList !== null) {
@@ -58,7 +58,7 @@ export default function ClassList({classList, setClassList, selectedClass, setSe
                     {classList.map((classInfo) => {
                         return (
                             <ClassCard key={classInfo.id} classInfo={classInfo} deleteClass={deleteClass} 
-                            selectedClass={selectedClass} setSelectedClass={setSelectedClass} />
+                            selectedClass={selectedClass} setSelectedClass={setSelectedClass} updateSelectedClassLocalStorage={updateSelectedClassLocalStorage} />
                         )
                     })}
                 </div>

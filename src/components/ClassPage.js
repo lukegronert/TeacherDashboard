@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import StudentDisplay from './StudentDisplay';
 import { Link } from 'react-router-dom';
 
-export default function ClassPage({selectedClass, setSelectedClass, classList, setClassList, updateLocalStorage}) {
+export default function ClassPage({selectedClass, setSelectedClass, classList, setClassList, updateClassListLocalStorage}) {
     const [newStudent, setNewStudent] = useState('');
     const [selectedStudent, setSelectedStudent] = useState({});
     
@@ -45,13 +45,13 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
             // Set input text to blank
             studentNameInput.value = '';
             setNewStudent('');
-            updateLocalStorage()
+            updateClassListLocalStorage()
         }
     };
 
     useEffect(() => {
         // Whenever classList is updated, update selectedClass for any changes in the roster (when a new student is added)
-        updateLocalStorage()
+        updateClassListLocalStorage()
         setSelectedClass(classList.find((classInfo) => {
             return classInfo.id === selectedClass.id;
         }));
@@ -78,7 +78,7 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                         <button onClick={() => toggleStudentModal()}>Add Student</button>
                     </div>
                     <StudentDisplay selectedStudent={selectedStudent} setSelectedStudent={setSelectedStudent} roster={selectedClass.roster}
-                                    classList={classList} setClassList={setClassList} selectedClass={selectedClass} updateLocalStorage={updateLocalStorage} />
+                                    classList={classList} setClassList={setClassList} selectedClass={selectedClass} updateClassListLocalStorage={updateClassListLocalStorage} />
                 </div>
             </div>
         )
@@ -108,7 +108,7 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                     <button onClick={() => toggleStudentModal()}>Add Student</button>
                 </div>
                 <StudentDisplay selectedStudent={selectedStudent} setSelectedStudent={setSelectedStudent} roster={selectedClass.roster}
-                                classList={classList} setClassList={setClassList} selectedClass={selectedClass} updateLocalStorage={updateLocalStorage} />
+                                classList={classList} setClassList={setClassList} selectedClass={selectedClass} updateClassListLocalStorage={updateClassListLocalStorage} />
             </div>
         </div>
     )

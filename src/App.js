@@ -7,18 +7,25 @@ import ClassPage from './components/ClassPage';
 function App() {
   const [classList, setClassList] = useState(localStorage.getItem('classList') ? JSON.parse(localStorage.getItem('classList')) : [])
 
-  const updateLocalStorage = () => {
+  const updateClassListLocalStorage = () => {
       setTimeout(() => localStorage.setItem('classList', JSON.stringify(classList)), 100)
     }
 
-  const [selectedClass, setSelectedClass] = useState({});
+  const [selectedClass, setSelectedClass] = useState(localStorage.getItem('selectedClass') ? JSON.parse(localStorage.getItem('selectedClass')) : {});
+
+  const updateSelectedClassLocalStorage = (classId) => {
+    setTimeout(() => localStorage.setItem('selectedClass', JSON.stringify(classId)), 100)
+    localStorage.setItem('selectedClass', JSON.stringify(classId))
+  }
 
     return (
      <HashRouter basename='/'>
        <Route exact path="/" render={() => <ClassList classList={classList} setClassList={setClassList}
-                                            setSelectedClass={setSelectedClass} updateLocalStorage={updateLocalStorage} />} />
+                                            setSelectedClass={setSelectedClass} updateClassListLocalStorage={updateClassListLocalStorage}
+                                            updateSelectedClassLocalStorage={updateSelectedClassLocalStorage} />} />
        <Route path='/classpage' render={() => <ClassPage selectedClass={selectedClass} setSelectedClass={setSelectedClass}
-                                            classList={classList} setClassList={setClassList} updateLocalStorage={updateLocalStorage} />} />
+                                            classList={classList} setClassList={setClassList} updateClassListLocalStorage={updateClassListLocalStorage}
+                                            updateSelectedClassLocalStorage={updateSelectedClassLocalStorage} />} />
      </HashRouter>
     );
    }

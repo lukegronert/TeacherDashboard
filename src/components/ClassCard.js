@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Class({classInfo, selectedClass, setSelectedClass, deleteClass}) {
+export default function Class({classInfo, selectedClass, setSelectedClass, deleteClass, updateSelectedClassLocalStorage}) {
     const selectClass = () => {
         setSelectedClass(classInfo)
+        updateSelectedClassLocalStorage(classInfo)
     }
 
     return (
