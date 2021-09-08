@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Class({classInfo, selectedClass, setSelectedClass, deleteClass, updateSelectedClassLocalStorage}) {
     const selectClass = () => {
         setSelectedClass(classInfo)
+        // Sets the localstorage value of selectedClass to the class that the user chose to view
         updateSelectedClassLocalStorage(classInfo)
     }
 

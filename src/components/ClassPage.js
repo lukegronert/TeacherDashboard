@@ -52,6 +52,7 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
     useEffect(() => {
         // Whenever classList is updated, update selectedClass for any changes in the roster (when a new student is added)
         updateClassListLocalStorage()
+        //resets the selectedClass to the updated selectedClass. This runs when the user adds a new student.
         setSelectedClass(classList.find((classInfo) => {
             return classInfo.id === selectedClass.id;
         }));

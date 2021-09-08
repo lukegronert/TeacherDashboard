@@ -13,6 +13,7 @@ function App() {
 
   const [selectedClass, setSelectedClass] = useState(localStorage.getItem('selectedClass') ? JSON.parse(localStorage.getItem('selectedClass')) : {});
 
+  // Sets the selectedClass value in local storage to equal to updated version of the selectedClass
   const updateSelectedClassLocalStorage = (classId) => {
     setTimeout(() => localStorage.setItem('selectedClass', JSON.stringify(classId)), 100)
     localStorage.setItem('selectedClass', JSON.stringify(classId))
