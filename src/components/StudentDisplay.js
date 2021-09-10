@@ -27,13 +27,17 @@ export default function StudentDisplay({selectedStudent, setSelectedStudent, ros
                                 {
                                     roster: [
                                         classInfo.roster.map((student) => {
+                                            // check if student is the student use as a param
                                             student.name === studentName
                                             ?
+                                                //if it is, add 1 to the points of the student
                                                     {
                                                         points: student.points++,
+                                                        //keep other info the same
                                                         ...student
                                                     }
                                             :
+                                                    //if it is a different student, return student info
                                                     { ...student }
                                             }
                                         )
