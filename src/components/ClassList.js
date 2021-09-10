@@ -19,7 +19,6 @@ export default function ClassList({classList, setClassList, selectedClass, setSe
     const addClass = () => {
         //add class to classList
         if(newClass !== '') {
-            console.log(classList)
             setClassList([
                 ...classList,
                 {
@@ -50,7 +49,7 @@ export default function ClassList({classList, setClassList, selectedClass, setSe
         updateClassListLocalStorage()
     }, [classList])
 
-    if(classList !== null) {
+    if(classList.length !== null) {
         return (
             <div className="mainContent">
             <h1>Welcome, Teacher!</h1>

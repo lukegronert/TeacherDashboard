@@ -15,7 +15,6 @@ export default function StudentDisplay({selectedStudent, setSelectedStudent, ros
     }
 
     const addPoint = (studentName, studentClassId) => {
-            console.log(selectedClass)
             // Set classList to update points of selectedStudent
             setClassList(
                 classList.map((classInfo) => {
@@ -55,7 +54,6 @@ export default function StudentDisplay({selectedStudent, setSelectedStudent, ros
         };
 
     const subtractPoint = (studentName, studentClassId) => {
-        console.log(selectedClass)
         // Set classList to update points of selectedStudent
         setClassList(
             classList.map((classInfo) => {
@@ -91,7 +89,6 @@ export default function StudentDisplay({selectedStudent, setSelectedStudent, ros
     };
 
     if(selectedStudent.name !== undefined) {
-        console.log(selectedStudent)
         return (
             <div className='studentDisplay'>
                 <h2>{calculateLevel(selectedStudent.points)}</h2>

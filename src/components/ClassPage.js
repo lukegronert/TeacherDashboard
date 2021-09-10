@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import StudentDisplay from './StudentDisplay';
 import { Link } from 'react-router-dom';
 
+/* eslint-disable */
+//Disabled eslint because no-unused-expressions was not letting my program run
 export default function ClassPage({selectedClass, setSelectedClass, classList, setClassList, updateClassListLocalStorage}) {
     const [newStudent, setNewStudent] = useState('');
     const [selectedStudent, setSelectedStudent] = useState({});
@@ -27,10 +29,10 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                 // Find the class with the same id as the selectedClass being displayed on this page
                     classInfo.id === selectedClass.id 
                     ? {
-                        ...classInfo,
+                        ...selectedClass,
                         roster: [
                             // Add the new student to the roster
-                            ...classInfo.roster,
+                            ...selectedClass.roster,
                             {
                                 name: newStudent,
                                 points: 0,
@@ -48,6 +50,31 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
             updateClassListLocalStorage()
         }
     };
+
+    const deleteStudent = (studentName) => {
+        // create new array without the class that user wants to delete
+        const newClassRoster = selectedClass.roster.filter((student) => student.name !== studentName);
+        // set the new array without the deleted array as the classList
+        setSelectedClass({
+            ...selectedClass,
+            roster: [
+                ...newClassRoster
+            ]
+        })
+        setClassList(
+            classList.map((classInfo) => 
+            // Find the class with the same id as the selectedClass being displayed on this page
+                classInfo.id === selectedClass.id 
+                ? {
+                    ...selectedClass,
+                    roster: [
+                        ...newClassRoster
+                    ]
+                }
+                : { ...classInfo }
+            )
+        )
+    }
 
     useEffect(() => {
         // Whenever classList is updated, update selectedClass for any changes in the roster (when a new student is added)
@@ -95,7 +122,10 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                 <div className='student' onClick={() => setSelectedStudent(selectedClass.roster)}>All</div>
                     {selectedClass.roster.map((student) => {
                         return (
-                            <div key={student.name} className='student' onClick={() => setSelectedStudent(student)}>{student.name}</div>
+                            <div>
+                                <div key={student.name} className='student' onClick={() => setSelectedStudent(student)}>{student.name}
+                                <button onClick={() => deleteStudent(student.name)}>X</button></div>
+                            </div>
                         )
                     })}
                     <div className="modal studentModal">
