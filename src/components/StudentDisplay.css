@@ -1,7 +1,38 @@
 .studentDisplay {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
+  display: block;
 }
 
 .progress {
   width: 90%;
+}
+
+img {
+  margin: 0 auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+
+.studentContent {
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.studentContent h2 {
+  font-size: 3rem;
+  margin: 10vh 0 3vh 0;
+}
+
+.progressBarDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

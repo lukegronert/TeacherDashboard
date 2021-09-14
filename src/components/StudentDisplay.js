@@ -1,6 +1,12 @@
 import React from 'react';
 import './StudentDisplay.css';
 import { Progress } from 'semantic-ui-react';
+import number0 from '../images/0.jpg';
+import number1 from '../images/1.jpg';
+import number2 from '../images/2.jpg';
+import number3 from '../images/3.jpg';
+import number4 from '../images/4.jpg';
+import number5 from '../images/5.jpg';
 
 /* eslint-disable */
 //Disabled eslint because no-unused-expressions was not letting my program run
@@ -86,15 +92,36 @@ export default function StudentDisplay({selectedStudent, roster, classList, setC
                     }))
                     updateClassListLocalStorage()
     };
-
+    // Using this until I figure out how to concatenate strings together to form a new variable name
     if(selectedStudent.name !== undefined) {
+        const studentLevel = calculateLevel(selectedStudent.points);
+        let levelImg = null;
+        if (studentLevel === 0) {
+            levelImg = number0;
+        } else if (studentLevel === 1) {
+            levelImg = number1;
+        } else if (studentLevel === 2) {
+            levelImg = number2;
+        }  else if (studentLevel === 3) {
+            levelImg = number3;
+        }  else if (studentLevel === 4) {
+            levelImg = number4;
+        }  else if (studentLevel === 5) {
+            levelImg = number5;
+        }
         return (
             <div className='studentDisplay'>
-                <h2>{calculateLevel(selectedStudent.points)}</h2>
-                    {selectedStudent.name}
-                    <Progress progress percent={calculatePercentToNextLevel(selectedStudent.points)} />
-                    <button onClick={() => subtractPoint(selectedStudent.name, selectedStudent.classId)}>-</button>
-                    <button onClick={() => addPoint(selectedStudent.name, selectedStudent.classId)}>+</button>
+                <img src={levelImg} alt='number 1' />
+                <div className='studentContent'>
+                    <h2>{selectedStudent.name}</h2>
+                    <div className='progressBarDiv'>
+                        {studentLevel}<Progress progress percent={calculatePercentToNextLevel(selectedStudent.points)} />{studentLevel + 1}
+                    </div>
+                    <div className='pointsButtons'>
+                        <button onClick={() => subtractPoint(selectedStudent.name, selectedStudent.classId)}>-</button>
+                        <button onClick={() => addPoint(selectedStudent.name, selectedStudent.classId)}>+</button>
+                    </div>
+                </div>
             </div>
         )
     }

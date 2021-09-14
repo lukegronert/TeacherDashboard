@@ -124,7 +124,7 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                         return (
                             <div>
                                 <div key={student.name} className='student' onClick={() => setSelectedStudent(student)}>{student.name}
-                                <button onClick={() => deleteStudent(student.name)}>X</button></div>
+                                <button onClick={() => deleteStudent(student.name)} className='studentDeleteBtn'>X</button></div>
                             </div>
                         )
                     })}

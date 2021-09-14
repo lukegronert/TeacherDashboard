@@ -1,6 +1,6 @@
 import 'semantic-ui-css/semantic.min.css';
 import ClassList from './components/ClassList';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { HashRouter, Route } from "react-router-dom";
 import ClassPage from './components/ClassPage';
 
