@@ -105,8 +105,8 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                         </div>
                         <button onClick={() => toggleStudentModal()}>Add Student</button>
                     </div>
-                    <StudentDisplay selectedStudent={selectedStudent} setSelectedStudent={setSelectedStudent} roster={selectedClass.roster}
-                                    classList={classList} setClassList={setClassList} selectedClass={selectedClass} updateClassListLocalStorage={updateClassListLocalStorage} />
+                    <StudentDisplay selectedStudent={selectedStudent} roster={selectedClass.roster}
+                                    classList={classList} setClassList={setClassList} updateClassListLocalStorage={updateClassListLocalStorage} />
                 </div>
             </div>
         )
@@ -138,8 +138,8 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                     </div>
                     <button onClick={() => toggleStudentModal()}>Add Student</button>
                 </div>
-                <StudentDisplay selectedStudent={selectedStudent} setSelectedStudent={setSelectedStudent} roster={selectedClass.roster}
-                                classList={classList} setClassList={setClassList} selectedClass={selectedClass} updateClassListLocalStorage={updateClassListLocalStorage} />
+                <StudentDisplay selectedStudent={selectedStudent} roster={selectedClass.roster}
+                                classList={classList} setClassList={setClassList} updateClassListLocalStorage={updateClassListLocalStorage} />
             </div>
         </div>
     )

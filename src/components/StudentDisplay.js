@@ -1,11 +1,10 @@
 import React from 'react';
 import './StudentDisplay.css';
 import { Progress } from 'semantic-ui-react';
-import { useEffect } from 'react';
 
 /* eslint-disable */
 //Disabled eslint because no-unused-expressions was not letting my program run
-export default function StudentDisplay({selectedStudent, setSelectedStudent, roster, classList, setClassList, selectedClass, updateClassListLocalStorage }) {
+export default function StudentDisplay({selectedStudent, roster, classList, setClassList, updateClassListLocalStorage }) {
     const calculateLevel = (points) => {
         return Math.floor(points/100)
     }

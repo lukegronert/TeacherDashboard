@@ -57,7 +57,7 @@ export default function ClassList({classList, setClassList, selectedClass, setSe
                     {classList.map((classInfo) => {
                         return (
                             <ClassCard key={classInfo.id} classInfo={classInfo} deleteClass={deleteClass} 
-                            selectedClass={selectedClass} setSelectedClass={setSelectedClass} updateSelectedClassLocalStorage={updateSelectedClassLocalStorage} />
+                            setSelectedClass={setSelectedClass} updateSelectedClassLocalStorage={updateSelectedClassLocalStorage} />
                         )
                     })}
                 </div>
