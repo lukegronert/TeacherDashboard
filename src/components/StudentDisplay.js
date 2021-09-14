@@ -93,7 +93,7 @@ export default function StudentDisplay({selectedStudent, roster, classList, setC
                     updateClassListLocalStorage()
     };
 
-    const images = {
+    const numberImages = {
         '0': number0,
         '1': number1,
         '2': number2,
@@ -104,7 +104,7 @@ export default function StudentDisplay({selectedStudent, roster, classList, setC
     // Using this until I figure out how to concatenate strings together to form a new variable name
     if(selectedStudent.name !== undefined) {
         const studentLevel = calculateLevel(selectedStudent.points);
-        let levelImg = images[studentLevel];
+        let levelImg = numberImages[studentLevel];
         return (
             <div className='studentDisplay'>
                 <img src={levelImg} alt='number 1' />
