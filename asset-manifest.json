@@ -1,24 +1,30 @@
 {
   "files": {
-    "main.css": "/TeacherDashboard/static/css/main.66c42435.chunk.css",
-    "main.js": "/TeacherDashboard/static/js/main.d094078a.chunk.js",
-    "main.js.map": "/TeacherDashboard/static/js/main.d094078a.chunk.js.map",
+    "main.css": "/TeacherDashboard/static/css/main.c9db76d1.chunk.css",
+    "main.js": "/TeacherDashboard/static/js/main.1f703c1f.chunk.js",
+    "main.js.map": "/TeacherDashboard/static/js/main.1f703c1f.chunk.js.map",
     "runtime-main.js": "/TeacherDashboard/static/js/runtime-main.00feb70a.js",
     "runtime-main.js.map": "/TeacherDashboard/static/js/runtime-main.00feb70a.js.map",
     "static/css/2.23df6f8b.chunk.css": "/TeacherDashboard/static/css/2.23df6f8b.chunk.css",
-    "static/js/2.acc7f28e.chunk.js": "/TeacherDashboard/static/js/2.acc7f28e.chunk.js",
-    "static/js/2.acc7f28e.chunk.js.map": "/TeacherDashboard/static/js/2.acc7f28e.chunk.js.map",
+    "static/js/2.9730cb52.chunk.js": "/TeacherDashboard/static/js/2.9730cb52.chunk.js",
+    "static/js/2.9730cb52.chunk.js.map": "/TeacherDashboard/static/js/2.9730cb52.chunk.js.map",
     "index.html": "/TeacherDashboard/index.html",
     "static/css/2.23df6f8b.chunk.css.map": "/TeacherDashboard/static/css/2.23df6f8b.chunk.css.map",
-    "static/css/main.66c42435.chunk.css.map": "/TeacherDashboard/static/css/main.66c42435.chunk.css.map",
-    "static/js/2.acc7f28e.chunk.js.LICENSE.txt": "/TeacherDashboard/static/js/2.acc7f28e.chunk.js.LICENSE.txt",
+    "static/css/main.c9db76d1.chunk.css.map": "/TeacherDashboard/static/css/main.c9db76d1.chunk.css.map",
+    "static/js/2.9730cb52.chunk.js.LICENSE.txt": "/TeacherDashboard/static/js/2.9730cb52.chunk.js.LICENSE.txt",
+    "static/media/0.3a3ea370.jpg": "/TeacherDashboard/static/media/0.3a3ea370.jpg",
+    "static/media/1.6ac1f1f9.jpg": "/TeacherDashboard/static/media/1.6ac1f1f9.jpg",
+    "static/media/2.9da0f13b.jpg": "/TeacherDashboard/static/media/2.9da0f13b.jpg",
+    "static/media/3.c261bf2e.jpg": "/TeacherDashboard/static/media/3.c261bf2e.jpg",
+    "static/media/4.bb1fdc33.jpg": "/TeacherDashboard/static/media/4.bb1fdc33.jpg",
+    "static/media/5.3951d5b6.jpg": "/TeacherDashboard/static/media/5.3951d5b6.jpg",
     "static/media/semantic.min.css": "/TeacherDashboard/static/media/outline-icons.ddae9b1b.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.00feb70a.js",
     "static/css/2.23df6f8b.chunk.css",
-    "static/js/2.acc7f28e.chunk.js",
-    "static/css/main.66c42435.chunk.css",
-    "static/js/main.d094078a.chunk.js"
+    "static/js/2.9730cb52.chunk.js",
+    "static/css/main.c9db76d1.chunk.css",
+    "static/js/main.1f703c1f.chunk.js"
   ]
 }
