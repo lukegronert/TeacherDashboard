@@ -119,24 +119,24 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
             <h1>{selectedClass.id}</h1>
             <div className='classContent'>
                 <div className='roster'>
-                <div className='student' onClick={() => setSelectedStudent(selectedClass.roster)}>All</div>
-                    {selectedClass.roster.map((student) => {
-                        return (
-                            <div>
-                                <div key={student.name} className='student' onClick={() => setSelectedStudent(student)}>{student.name}
-                                <button onClick={() => deleteStudent(student.name)} className='studentDeleteBtn'>X</button></div>
+                    <div className='student' onClick={() => setSelectedStudent(selectedClass.roster)}>All</div>
+                        {selectedClass.roster.map((student) => {
+                            return (
+                                <div>
+                                    <div key={student.name} className='student' onClick={() => setSelectedStudent(student)}>{student.name}
+                                    <button onClick={() => deleteStudent(student.name)} className='studentDeleteBtn'>X</button></div>
+                                </div>
+                            )
+                        })}
+                        <button onClick={() => toggleStudentModal()}>Add Student</button>
+                        <div className="modal studentModal">
+                            <div className="modalContent">
+                                <label>Student Name</label>
+                                <input type="text" placeholder="" className='studentNameInput'
+                                        onChange={(event) => setNewStudent(event.target.value)} />
                             </div>
-                        )
-                    })}
-                    <div className="modal studentModal">
-                        <div className="modalContent">
-                            <label>Student Name</label>
-                            <input type="text" placeholder="" className='studentNameInput'
-                                    onChange={(event) => setNewStudent(event.target.value)} />
+                                <button onClick={() => addStudent()}>Add</button>
                         </div>
-                            <button onClick={() => addStudent()}>Add</button>
-                    </div>
-                    <button onClick={() => toggleStudentModal()}>Add Student</button>
                 </div>
                 <StudentDisplay selectedStudent={selectedStudent} roster={selectedClass.roster}
                                 classList={classList} setClassList={setClassList} updateClassListLocalStorage={updateClassListLocalStorage} />
