@@ -49,10 +49,13 @@ h1 {
 
 .studentModal {
   display: none;
+  text-align: center;
+  width: 100%;
 }
 
 .modalContent {
   margin: 0;
+  width: 100%;
 }
 
 /* ======================= */
