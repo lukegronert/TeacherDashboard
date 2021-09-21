@@ -10,7 +10,7 @@ import number5 from '../images/5.jpg';
 
 /* eslint-disable */
 //Disabled eslint because no-unused-expressions was not letting my program run
-export default function StudentDisplay({selectedStudent, roster, classList, setClassList, updateClassListLocalStorage }) {
+export default function StudentDisplay({selectedStudent, roster, classList, setClassList, updateClassListLocalStorage, deleteStudent }) {
     const calculateLevel = (points) => {
         return Math.floor(points/100)
     }
@@ -92,6 +92,7 @@ export default function StudentDisplay({selectedStudent, roster, classList, setC
                     }))
                     updateClassListLocalStorage()
     };
+
     // Object with all numberImage variables
     const numberImages = {
         '0': number0,
@@ -118,6 +119,7 @@ export default function StudentDisplay({selectedStudent, roster, classList, setC
                         <button onClick={() => subtractPoint(selectedStudent.name, selectedStudent.classId)}>-</button>
                         <button onClick={() => addPoint(selectedStudent.name, selectedStudent.classId)}>+</button>
                     </div>
+                    <button onClick={() => deleteStudent(selectedStudent.name)}>Delete</button>
                 </div>
             </div>
         )

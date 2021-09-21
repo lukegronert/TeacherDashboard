@@ -74,6 +74,9 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                 : { ...classInfo }
             )
         )
+        setTimeout(() => {
+            setSelectedStudent({})
+        }, 100)
     }
 
     useEffect(() => {
@@ -106,7 +109,8 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                         <button onClick={() => toggleStudentModal()}>Add Student</button>
                     </div>
                     <StudentDisplay selectedStudent={selectedStudent} roster={selectedClass.roster}
-                                    classList={classList} setClassList={setClassList} updateClassListLocalStorage={updateClassListLocalStorage} />
+                                    classList={classList} setClassList={setClassList} updateClassListLocalStorage={updateClassListLocalStorage}
+                                    deleteStudent={deleteStudent} />
                 </div>
             </div>
         )
@@ -123,8 +127,9 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                         {selectedClass.roster.map((student) => {
                             return (
                                 <div>
-                                    <div key={student.name} className='student' onClick={() => setSelectedStudent(student)}>{student.name}
-                                    <button onClick={() => deleteStudent(student.name)} className='studentDeleteBtn'>X</button></div>
+                                    <div key={student.name} className='student' onClick={() => setSelectedStudent(student)}>
+                                        {student.name}
+                                    </div>
                                 </div>
                             )
                         })}
@@ -139,7 +144,8 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                         </div>
                 </div>
                 <StudentDisplay selectedStudent={selectedStudent} roster={selectedClass.roster}
-                                classList={classList} setClassList={setClassList} updateClassListLocalStorage={updateClassListLocalStorage} />
+                                classList={classList} setClassList={setClassList} updateClassListLocalStorage={updateClassListLocalStorage}
+                                deleteStudent={deleteStudent} />
             </div>
         </div>
     )

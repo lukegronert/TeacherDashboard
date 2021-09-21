@@ -36,3 +36,13 @@ img {
   flex-direction: row;
   justify-content: space-between;
 }
+
+/* ==================== */
+/* Mobile */
+/* ==================== */
+
+@media (max-width: 600px) {
+  .studentDisplay {
+    display: none;
+  }
+}

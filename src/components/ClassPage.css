@@ -43,11 +43,6 @@ h1 {
   width: 80%;
 }
 
-.studentDeleteBtn {
-  float: right;
-  margin-right: 5%;
-}
-
 /* ======================================== */
 /* Modal Styles */
 /* ======================================== */
@@ -58,4 +53,15 @@ h1 {
 
 .modalContent {
   margin: 0;
+}
+
+/* ======================= */
+/* Mobile */
+/* ======================= */
+
+@media (max-width: 600px) {
+  .roster {
+    width: 100%;
+    text-align: center;
+  }
 }
