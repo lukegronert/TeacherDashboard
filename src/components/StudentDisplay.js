@@ -93,6 +93,15 @@ export default function StudentDisplay({selectedStudent, roster, classList, setC
                     updateClassListLocalStorage()
     };
 
+    const mobileDisplayRoster = () => {
+        const roster = document.querySelector('.roster');
+        const studentDisplay = document.querySelector('.studentDisplay');
+        if(roster.style.display === 'none') {
+            roster.style.display = 'block';
+            studentDisplay.style.display = 'none';
+        }
+    }
+
     // Object with all numberImage variables
     const numberImages = {
         '0': number0,
@@ -120,20 +129,24 @@ export default function StudentDisplay({selectedStudent, roster, classList, setC
                         <button onClick={() => addPoint(selectedStudent.name, selectedStudent.classId)}>+</button>
                     </div>
                     <button onClick={() => deleteStudent(selectedStudent.name)}>Delete</button>
+                    <button onClick={() => mobileDisplayRoster()} className='backButton'>Back</button>
                 </div>
             </div>
         )
     }
     
-    return (
-        <div className='studentDisplay'>
-                {roster.map((student) => {
-                    return (
-                        <div key={student.name}>
-                            {calculateLevel(student.points)} {student.name} <Progress progress percent={calculatePercentToNextLevel(student.points)} />
-                        </div>
-                    )
-                })}
-        </div>
-    )
+    if(selectedStudent === roster || selectedStudent.name === undefined) {
+        return (
+            <div className='studentDisplay'>
+                    {roster.map((student) => {
+                        return (
+                            <div key={student.name}>
+                                {calculateLevel(student.points)} {student.name} <Progress progress percent={calculatePercentToNextLevel(student.points)} />
+                            </div>
+                        )
+                    })}
+                    <button onClick={() => mobileDisplayRoster()} className='backButton'>Back</button>
+            </div>
+        )
+    }
 }

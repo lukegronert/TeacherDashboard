@@ -56,6 +56,14 @@ h1 {
 }
 
 /* ======================= */
+/* studentDisplay */
+/* ======================= */
+
+.studentDisplay {
+  display: block;
+}
+
+/* ======================= */
 /* Mobile */
 /* ======================= */
 
@@ -63,5 +71,9 @@ h1 {
   .roster {
     width: 100%;
     text-align: center;
+  }
+
+  .studentDisplay {
+    display: none;
   }
 }

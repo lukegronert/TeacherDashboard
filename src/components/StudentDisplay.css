@@ -37,6 +37,10 @@ img {
   justify-content: space-between;
 }
 
+.backButton {
+  display: none;
+}
+
 /* ==================== */
 /* Mobile */
 /* ==================== */
@@ -44,5 +48,9 @@ img {
 @media (max-width: 600px) {
   .studentDisplay {
     display: none;
+  }
+
+  .backButton {
+    display: block;
   }
 }

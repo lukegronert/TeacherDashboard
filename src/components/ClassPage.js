@@ -19,6 +19,16 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
         }
     }
 
+    const displayMobileStudentDisplay = (student) => {
+        const studentDisplay = document.querySelector('.studentDisplay');
+        const roster = document.querySelector('.roster');
+        if(window.screen.width < 601) {
+            studentDisplay.style.display= 'block';
+            roster.style.display = 'none';
+        }
+        setSelectedStudent(student)
+    }
+
     const addStudent = () => {
         const studentNameInput = document.querySelector('.studentNameInput');
         // only add student if input is not blank
@@ -123,11 +133,11 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
             <h1>{selectedClass.id}</h1>
             <div className='classContent'>
                 <div className='roster'>
-                    <div className='student' onClick={() => setSelectedStudent(selectedClass.roster)}>All</div>
+                    <div className='student' onClick={() => displayMobileStudentDisplay(selectedClass.roster)}>All</div>
                         {selectedClass.roster.map((student) => {
                             return (
                                 <div>
-                                    <div key={student.name} className='student' onClick={() => setSelectedStudent(student)}>
+                                    <div key={student.name} className='student' onClick={() => displayMobileStudentDisplay(student)}>
                                         {student.name}
                                     </div>
                                 </div>
