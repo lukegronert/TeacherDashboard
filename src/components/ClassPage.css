@@ -18,6 +18,16 @@ h1 {
 }
 
 /* ======================================== */
+/* Nav */
+/* ======================================== */
+
+.homeIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* ======================================== */
 /* Roster sidebar styles */
 /* ======================================== */
 
@@ -27,6 +37,7 @@ h1 {
   display: flex;
   flex-direction: column;
   font-weight: bolder;
+  padding-right: 5%;
 }
 
 .roster .student {
@@ -36,6 +47,10 @@ h1 {
 
 .roster .student:hover {
   color: gold;
+}
+
+.addStudentButton {
+  width: 50%;
 }
 
 .studentContent {
@@ -49,7 +64,6 @@ h1 {
 
 .studentModal {
   display: none;
-  text-align: center;
   width: 100%;
 }
 
@@ -74,6 +88,12 @@ h1 {
   .roster {
     width: 100%;
     text-align: center;
+    padding-right: 0;
+    display: flex;
+  }
+
+  .addStudentButton {
+    align-self: center;
   }
 
   .studentDisplay {

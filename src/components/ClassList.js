@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import ClassCard from './ClassCard';
 import './ClassList.css';
+import { Button } from 'semantic-ui-react';
 
 export default function ClassList({classList, setClassList, selectedClass, setSelectedClass, updateClassListLocalStorage, updateSelectedClassLocalStorage}) {
     const [newClass, setNewClass] = useState('')
@@ -61,16 +62,16 @@ export default function ClassList({classList, setClassList, selectedClass, setSe
                         )
                     })}
                 </div>
-                <button className='addClassButton' onClick={() => toggleAddClassModal()}>
-                    Add Class
-                </button>
+                <div className='addClassButton'>
+                    <Button onClick={() => toggleAddClassModal()} basic content='Add Class' color='black' />
+                </div>
                 <div className="modal classModal">
                     <div className="modalContent">
                         <label>Class Title</label>
                         <input type="text" placeholder="(ex: AB2)" className='classTitleInput'
                                 onChange={(event) => setNewClass(event.target.value)} />
                     </div>
-                        <button onClick={() => addClass()}>Add</button>
+                        <Button onClick={() => addClass()} basic content='Add' color='blue' />
                 </div>
             </div>
         );
@@ -78,16 +79,16 @@ export default function ClassList({classList, setClassList, selectedClass, setSe
         return (
             <div className="mainContent">
                 <h1>Welcome, Teacher!</h1>
-                <button className='addClassButton' onClick={() => toggleAddClassModal()}>
-                    Add Class
-                </button>
+                <div className='addClassButton'>
+                    <Button onClick={() => toggleAddClassModal()} basic content='Add Class' color='black' />
+                </div>
                 <div className="modal classModal">
                     <div className="modalContent">
                         <label>Class Title</label>
                         <input type="text" placeholder="(ex: AB2)" className='classTitleInput'
                                 onChange={(event) => setNewClass(event.target.value)} />
                     </div>
-                        <button onClick={() => addClass()}>Add</button>
+                        <Button onClick={() => addClass()} basic content='Add' color='blue' />
                 </div>
             </div>
         )

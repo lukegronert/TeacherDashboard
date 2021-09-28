@@ -3,6 +3,7 @@ import './ClassPage.css';
 import { useState, useEffect } from 'react';
 import StudentDisplay from './StudentDisplay';
 import { Link } from 'react-router-dom';
+import { Button, Icon } from 'semantic-ui-react';
 
 /* eslint-disable */
 //Disabled eslint because no-unused-expressions was not letting my program run
@@ -102,7 +103,13 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
         return (
             <div className='container'>
                 <nav>
-                    <span><Link to="/">Home</Link></span>
+                    <span className='homeIcon'>
+                        <Link to="/">
+                            <Button icon>
+                                <Icon name='home' />
+                            </Button>
+                        </Link>
+                    </span>
                 </nav>
                 <h1>{selectedClass.id}</h1>
                 <div className='classContent'>
@@ -114,9 +121,9 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                                 <input type="text" placeholder="" className='studentNameInput'
                                         onChange={(event) => setNewStudent(event.target.value)} />
                             </div>
-                                <button onClick={() => addStudent()}>Add</button>
+                            <Button onClick={() => addStudent()} basic color='blue' content='Submit' />
                         </div>
-                        <button onClick={() => toggleStudentModal()}>Add Student</button>
+                        <Button onClick={() => toggleStudentModal()} basic color='standard' content='Add' />
                     </div>
                     <StudentDisplay selectedStudent={selectedStudent} roster={selectedClass.roster}
                                     classList={classList} setClassList={setClassList} updateClassListLocalStorage={updateClassListLocalStorage}
@@ -128,7 +135,13 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
     return (
         <div className='container'>
             <nav>
-                <span><Link to="/">Home</Link></span>
+                <span className='homeIcon'>
+                    <Link to="/">
+                        <Button icon>
+                            <Icon name='home' />
+                        </Button>
+                    </Link>
+                </span>
             </nav>
             <h1>{selectedClass.id}</h1>
             <div className='classContent'>
@@ -143,14 +156,14 @@ export default function ClassPage({selectedClass, setSelectedClass, classList, s
                                 </div>
                             )
                         })}
-                        <button onClick={() => toggleStudentModal()}>Add Student</button>
+                        <Button onClick={() => toggleStudentModal()} basic color='standard' content='Add' className='addStudentButton' />
                         <div className="modal studentModal">
                             <div className="modalContent">
                                 <label>Student Name</label>
                                 <input type="text" placeholder="" className='studentNameInput'
                                         onChange={(event) => setNewStudent(event.target.value)} />
                             </div>
-                                <button onClick={() => addStudent()}>Add</button>
+                            <Button onClick={() => addStudent()} basic color='blue' content='Submit' />
                         </div>
                 </div>
                 <StudentDisplay selectedStudent={selectedStudent} roster={selectedClass.roster}

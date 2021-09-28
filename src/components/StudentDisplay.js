@@ -1,6 +1,6 @@
 import React from 'react';
 import './StudentDisplay.css';
-import { Progress } from 'semantic-ui-react';
+import { Progress, Button } from 'semantic-ui-react';
 import number0 from '../images/0.jpg';
 import number1 from '../images/1.jpg';
 import number2 from '../images/2.jpg';
@@ -11,6 +11,13 @@ import number5 from '../images/5.jpg';
 /* eslint-disable */
 //Disabled eslint because no-unused-expressions was not letting my program run
 export default function StudentDisplay({selectedStudent, roster, classList, setClassList, updateClassListLocalStorage, deleteStudent }) {
+    let mobileScreen = 'none';
+    if(screen.width < 601) {
+        mobileScreen = 'block';
+    } else {
+        mobileScreen = 'none';
+    }
+
     const calculateLevel = (points) => {
         return Math.floor(points/100)
     }
@@ -125,11 +132,11 @@ export default function StudentDisplay({selectedStudent, roster, classList, setC
                         {studentLevel}<Progress progress percent={calculatePercentToNextLevel(selectedStudent.points)} />{studentLevel + 1}
                     </div>
                     <div className='pointsButtons'>
-                        <button onClick={() => subtractPoint(selectedStudent.name, selectedStudent.classId)}>-</button>
-                        <button onClick={() => addPoint(selectedStudent.name, selectedStudent.classId)}>+</button>
+                        <Button onClick={() => subtractPoint(selectedStudent.name, selectedStudent.classId)} basic content='-' />
+                        <Button onClick={() => addPoint(selectedStudent.name, selectedStudent.classId)} basic content='+' />
                     </div>
-                    <button onClick={() => deleteStudent(selectedStudent.name)}>Delete</button>
-                    <button onClick={() => mobileDisplayRoster()} className='backButton'>Back</button>
+                    <Button onClick={() => deleteStudent(selectedStudent.name)} className='deleteButton' basic color='red' size='large' content='Delete' />
+                    <Button onClick={() => mobileDisplayRoster()} className='backButton' size='large' basic content='Back' style={{display: mobileScreen}} />
                 </div>
             </div>
         )
@@ -145,7 +152,7 @@ export default function StudentDisplay({selectedStudent, roster, classList, setC
                             </div>
                         )
                     })}
-                    <button onClick={() => mobileDisplayRoster()} className='backButton'>Back</button>
+                    <Button onClick={() => mobileDisplayRoster()} className='backButton' basic content='Back' style={{display: mobileScreen}} />
             </div>
         )
     }

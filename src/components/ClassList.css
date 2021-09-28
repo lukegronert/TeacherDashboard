@@ -11,12 +11,12 @@
   align-items: center;
 }
 
-.classModal {
-  display: none;
+.addClassButton {
+  margin-top: 5vh;
 }
 
-.addClassButton {
-  margin: 5%;
+.classModal {
+  display: none;
 }
 
 .modalContent {

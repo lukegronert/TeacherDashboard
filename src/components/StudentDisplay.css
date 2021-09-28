@@ -37,6 +37,10 @@ img {
   justify-content: space-between;
 }
 
+.pointsButtons {
+  margin-bottom: 5vh;
+}
+
 .backButton {
   display: none;
 }
@@ -52,5 +56,14 @@ img {
 
   .backButton {
     display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .deleteButton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 }
